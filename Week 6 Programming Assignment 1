@@ -1,0 +1,7 @@
+L=input().split()
+new_list=[]
+for d in L:
+  if d not in new_list:
+     new_list.append(d)
+print(*new_list,end="")      
+      
