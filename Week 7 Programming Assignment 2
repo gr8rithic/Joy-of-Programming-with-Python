@@ -1,0 +1,42 @@
+def ROTATE(matrix):
+    if not len(matrix):
+        return
+    top = 0
+    bottom = len(matrix) - 1
+    LEFT = 0
+    RIGHT = len(matrix[0]) - 1
+    while LEFT < RIGHT and top < bottom:
+        Previous = matrix[top + 1][LEFT]
+
+        for i in range(LEFT, RIGHT + 1):
+            temp = matrix[top][i]
+            matrix[top][i] = Previous
+            Previous = temp
+        top += 1
+        for i in range(top, bottom + 1):
+            temp = matrix[i][RIGHT]
+            matrix[i][RIGHT] = Previous
+            Previous = temp
+        RIGHT -= 1
+        for i in range(RIGHT, LEFT - 1, -1):
+            temp = matrix[bottom][i]
+            matrix[bottom][i] = Previous
+            Previous = temp
+        bottom -= 1
+        for i in range(bottom, top - 1, -1):
+            temp = matrix[i][LEFT]
+            matrix[i][LEFT] = Previous
+            Previous = temp
+        LEFT += 1
+    return(matrix)
+
+
+l = []
+ans= int(input())
+for i in range(ans):
+    part1 = [x for x in input().split()]
+    l.append(part1)
+rl = [ROTATE(l)]
+for i in range(ans - 1):
+    print(' '.join(l[i]))
+print(' '.join(l[ans - 1]), end="")
