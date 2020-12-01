@@ -1,0 +1,13 @@
+D=input().split(",")
+ques=list()
+for d in D:
+  ques.append(int(d))
+ans=list()
+for q in ques:
+  sol=(((2*50*q)/30)**0.5)
+  ans.append(str(round(sol)))
+print(",". join(ans),end="")
+    
+               
+              
+              

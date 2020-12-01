@@ -1,0 +1,2 @@
+get=input().split(",")
+print(",". join(sorted(get)),end="")
